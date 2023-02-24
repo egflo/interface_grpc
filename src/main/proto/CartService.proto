@@ -28,6 +28,8 @@ message CartItem {
     optional string name = 6;
     optional string description = 7;
     optional string image = 8;
+    optional string sku = 9;
+
 }
 
 
