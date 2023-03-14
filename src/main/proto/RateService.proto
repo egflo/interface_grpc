@@ -8,10 +8,19 @@ option java_outer_classname = "RateServiceProto";
 
 service RateService {
     rpc GetRate (RateRequest) returns (RateResponse) {}
+    rpc GetRateCity (RateRequestCity) returns (RateResponseItems) {}
 }
 
 message RateRequest {
     string postCode = 1;
+}
+
+message RateRequestCity {
+    string city = 1;
+}
+
+message RateResponseItems {
+    repeated RateResponse items = 1;
 }
 
 message RateResponse {
@@ -28,4 +37,5 @@ message RateResponse {
     float rate = 11;
 }
 
+//The proto file is pretty simple. It defines a service called RateService with a single method called GetRate . The GetRate method takes a RateRequest and returns a RateResponse . The RateRequest and RateResponse are defined as message types. The RateRequest message type has a single field called postCode . The RateResponse message type has 11 fields. The fields are defined as follows:
 
