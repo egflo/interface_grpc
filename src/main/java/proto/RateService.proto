@@ -3,22 +3,22 @@ option java_multiple_files = true;
 option java_package = "org.proto.grpc";
 package grpc;
 
-option java_outer_classname = "TaxServiceProto";
+option java_outer_classname = "RateServiceProto";
 
 
-service TaxService {
-    rpc GetTax (TaxRequest) returns (TaxResponse) {}
+service RateService {
+    rpc GetTax (RateRequest) returns (RateResponse) {}
 }
 
-message TaxRequest {
+message RateRequest {
     string postCode = 1;
 }
 
-message TaxResponse {
-    repeated TaxItem items = 1;
+message RateResponse {
+    RateItem rateItem = 1;
 }
 
-message TaxItem {
+message RateItem {
     int64 id = 1;
     string city = 2;
     string state = 3;
