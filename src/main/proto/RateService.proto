@@ -28,19 +28,4 @@ message RateResponse {
     float rate = 11;
 }
 
-message RateItem {
-    int64 id = 1;
-    string city = 2;
-    string state = 3;
-    string county = 4;
-    string stateCode = 5;
-    string countyCode = 6;
-    string postCode = 7;
-    bool military = 8;
-    float latitude = 9;
-    float longitude = 10;
-    float rate = 11;
-}
-
-
 
