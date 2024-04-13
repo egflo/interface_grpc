@@ -29,4 +29,5 @@ message ItemResponse {
     string sku = 2;
     double price = 4;
     int32 quantity = 5;
+    string currency = 6;
 }
