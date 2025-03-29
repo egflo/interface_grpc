@@ -1,0 +1,28 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "org.proto.grpc";
+option java_outer_classname = "StripeServiceProto";
+
+service StripeService {
+  rpc getCustomer (CustomerRequest) returns (CustomerResponse) {};
+  rpc createCustomer(CreateCustomer) returns (CustomerResponse) {};
+}
+
+message CustomerRequest {
+  string id = 1; //Stripe Id or Firebase
+}
+
+message CreateCustomer {
+  string uid = 1;
+}
+
+message CustomerResponse {
+  string id = 1;
+  string object = 2;
+  int64 balance = 3;
+  string description = 4;
+  optional string name = 5;
+  int64 created = 6;
+  optional string uid = 7;
+}
+

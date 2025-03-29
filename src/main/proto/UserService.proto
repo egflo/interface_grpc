@@ -8,20 +8,37 @@ option java_outer_classname = "UserServiceProto";
 message UserRequest {
   string id = 1;
 }
-
+message AddressRequest {
+  string id = 1;
+}
+message AddressResponse {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string address_line_1 =  4;
+  optional string address_line_2 = 5;
+  string city = 6;
+  string state = 7;
+  string postal_code = 8;
+  string country = 9;
+  bool isDefault = 10;
+}
 message UserResponse {
   string id = 1;
-  string provider_id = 2;
-  optional string name = 3;
-  string email = 4;
-  optional string photo_url = 5;
-  optional string phone_number = 6;
-  bool email_verified = 7;
-  bool is_disabled = 8;
-  int64 created_at = 9;
-  int64 last_sign_in = 10;
+  optional string customer_id = 2;
+  string provider_id = 3;
+  optional string name = 4;
+  string email = 5;
+  optional string photo_url = 6;
+  optional string phone_number = 7;
+  bool email_verified = 8;
+  bool is_disabled = 9;
+  int64 created_at = 10;
+  int64 last_sign_in = 11;
+  repeated AddressResponse addresses = 12;
 }
 
 service UserService {
   rpc getUser (UserRequest) returns (UserResponse) {};
+  rpc getAddress (AddressRequest) returns (AddressResponse) {};
 }

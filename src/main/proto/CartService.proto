@@ -7,7 +7,8 @@ option java_outer_classname = "CartServiceProto";
 
 service CartService {
     rpc AddItem (CartItem) returns (CartResponse) {}
-    rpc RemoveItem (CartItem) returns (CartResponse) {}
+    rpc RemoveItem (CartItemRequest) returns (CartResponse) {}
+    rpc GetItem (CartItemRequest) returns (CartResponse) {}
     rpc GetCart (CartRequest) returns (CartResponse) {}
 }
 
@@ -15,22 +16,30 @@ message CartRequest {
     string userId = 1;
 }
 
+message CartItemRequest {
+    int64 id = 1;
+}
+
+
 message CartResponse {
-    repeated CartItem items = 1;
+    int64 id = 1;
+    string user_id = 2;
+    int64 created = 3;
+    int64 updated = 4;
+    string currency = 5;
+    repeated CartItem items = 6;
 }
 
 message CartItem {
     int64 id = 1;
-    string itemId = 2;
-    string userId = 3;
+    int64 cart_id = 2;
+    string itemId = 3;
     int32 quantity = 4;
     int32 price = 5;
-    string currency = 6;
-    optional string name = 7;
-    optional string description = 8;
-    optional string image = 9;
-    optional string sku = 10;
-
+    optional string name = 6;
+    optional string description = 7;
+    optional string image = 8;
+    optional string sku = 9;
 }
 
 
